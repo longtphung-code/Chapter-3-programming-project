@@ -1,6 +1,8 @@
 
 #include <iostream>
 #include <cmath>
+#include <iomanip>    // for setprecision and formatting
+
 
 int main() {
 	// take user input for principal
@@ -22,7 +24,13 @@ int main() {
 	std::cin >> timesCompounded;
 
 	double amount = principal * pow((1 + rate / timesCompounded), timesCompounded);
-	std::cout << "Your amount in savings is: " << amount << std::endl;
-	std::cout << "Your interest earned is: " << amount - principal << std::endl;
+	double interestEarned = amount - principal;
+	// Display the report
+	std::cout << "\nInterest Rate:      " << std::fixed << std::setprecision(2) << (rate * 100) << "%" << std::endl;
+	std::cout << "Times Compounded:   " << timesCompounded << std::endl;
+	std::cout << "Principal:          $" << std::fixed << std::setprecision(2) << principal << std::endl;
+	std::cout << "Interest Earned     $" << std::fixed << std::setprecision(2) << interestEarned << std::endl;
+	std::cout << "Amount in Savings:  $" << std::fixed << std::setprecision(2) << amount << std::endl;
+
 	return 0;
 }
